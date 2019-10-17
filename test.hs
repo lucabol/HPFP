@@ -187,6 +187,19 @@ foldBool2 x y b
 roundTrip :: (Show a, Read b) => a -> b
 roundTrip = read . show
 
+square :: Num a => a -> a
+square x = x * x
+
+sum :: Num a => [a] -> a
+sum [] = 0
+sum (x:xs) = x + sum xs
+
+data Shape =
+      Circle Float Float Float
+    | Rectangle Float Float Float Float
+    deriving (Show)  
+
 main = do
     print ((roundTrip 4)::Int)
     print (id 4)
+
